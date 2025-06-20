@@ -1,0 +1,10 @@
+crud_gsap_assets:
+  version: 1.x
+  js:
+    js/crud.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js: { cache: true }
+  css:
+    theme:
+      css/crud.css: {}
+  dependencies:
+    - core/jquery

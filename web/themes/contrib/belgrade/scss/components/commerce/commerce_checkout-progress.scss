@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Belgrade theme implementation for the checkout progress component.
+ */
+@import "../../global";
+
+.checkout-progress--step {
+  &__next {
+    opacity: 0.3;
+  }
+
+  // Stretch the step links
+  a {
+    &::#{$stretched-link-pseudo-element} {
+      position: absolute;
+      inset: 0;
+      z-index: $stretched-link-z-index;
+      content: "";
+    }
+  }
+}

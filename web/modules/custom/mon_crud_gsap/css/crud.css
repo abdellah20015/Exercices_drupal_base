@@ -1,0 +1,79 @@
+#crud-app {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+#crud-app table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+#crud-app table th, #crud-app table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+#crud-app table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+#crud-app table tr:hover {
+  background-color: #f9f9f9;
+}
+#crud-app table .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+#crud-app table button.remove {
+  background: #ff4136;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#crud-app table button.remove:hover {
+  background: #e60000;
+}
+#crud-app table button.edit {
+  background: #0074d9;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#crud-app table button.edit:hover {
+  background: #0056a3;
+}
+#crud-app .crud-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+#crud-app .crud-form input {
+  padding: 0.7rem;
+  width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+#crud-app .crud-form button#crud-add {
+  padding: 0.7rem 1rem;
+  background: #2ecc40;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#crud-app .crud-form button#crud-add:hover {
+  background: #29b739;
+}
+
+/*# sourceMappingURL=crud.css.map */

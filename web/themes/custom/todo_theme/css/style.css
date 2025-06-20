@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-container {
+  background: #fff;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.todo-container h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+#new-task {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#add-task {
+  padding: 0.8rem 1.2rem;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#add-task:hover {
+  background-color: #2980b9;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f4f4;
+  padding: 0.8rem 1rem;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.todo-item.done span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.todo-item span {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-right: 1rem;
+}
+
+.remove-task {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.remove-task:hover {
+  color: #c0392b;
+}

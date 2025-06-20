@@ -1,0 +1,17 @@
+//
+// Gin Toolbar
+// ----------------------------
+@import "../global";
+
+.gin--navigation {
+  // Offcanvas overrides.
+  .region-navigation.offcanvas-start {
+    left: var(--gin-toolbar-x-offset);
+  }
+
+  // Admin toolbar z-index overrides.
+  .admin-toolbar,
+  .gin-secondary-toolbar.gin-secondary-toolbar--frontend {
+    z-index: $zindex-offcanvas + 2;
+  }
+}

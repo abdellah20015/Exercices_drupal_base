@@ -1,0 +1,7 @@
+mon_crud_gsap.main:
+  path: '/crud-gsap'
+  defaults:
+    _controller: '\Drupal\mon_crud_gsap\Controller\CrudGsapController::content'
+    _title: 'CRUD GSAP'
+  requirements:
+    _permission: 'access content'

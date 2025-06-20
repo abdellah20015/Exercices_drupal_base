@@ -1,0 +1,22 @@
+uuid: 6bda209c-6343-4134-bd58-356f50099506
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - crud_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: crud_theme_content
+theme: crud_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

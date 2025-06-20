@@ -1,0 +1,10 @@
+name: "Todo Theme"
+type: theme
+description: "A custom theme for the Todo application."
+core_version_requirement: ^10
+base theme: false
+regions:
+  content: 'Content'
+
+libraries:
+  - todo_theme/global-styling

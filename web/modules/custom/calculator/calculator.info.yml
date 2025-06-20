@@ -1,0 +1,7 @@
+name: 'Calculator'
+type: module
+description: 'Une calculatrice simple.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:system

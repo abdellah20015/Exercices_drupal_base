@@ -1,0 +1,55 @@
+{
+  "name": "belgrade",
+  "version": "1.1.0",
+  "description": "Bootstrap Drupal theme built for Centarro Commerce Kickstart",
+  "main": "index.js",
+  "scripts": {
+    "watch": "nodemon -e scss -x \"npm run build\"",
+    "css-compile": "echo 'Compiling SCSS...' && sass --load-path=node_modules --style expanded --source-map --embed-sources --no-error-css scss/:css/ && echo 'SCSS compiled successfully!'",
+    "css-prefix": "echo 'Running PostCSS...' && postcss -u postcss-inline-svg autoprefixer -r 'css/**/*.css' --no-map && echo 'PostCSS processing completed!'",
+    "build": "echo 'Starting build process...' && npm-run-all --silent css-compile css-prefix && echo 'Build process completed successfully!'",
+    "icons-sprite": "echo 'Generating SVG sprite...' && svg-sprite --svg-namespace-classnames false --symbol --symbol-dest . --symbol-sprite images/belgrade-icons.svg icons/*.svg && echo 'SVG sprite generated!'",
+    "lint:scss": "echo 'Linting SCSS...' && stylelint \"scss/**/*.scss\" --fix && echo 'SCSS lint completed!'",
+    "format": "echo 'Formatting files...' && prettier --write \"**/*.{scss,json,md}\" && echo 'Formatting completed!'"
+  },
+  "keywords": [
+    "drupal",
+    "theme",
+    "bootstrap",
+    "bootstrap icons",
+    "commerce"
+  ],
+  "repository": "git@git.drupal.org:project/belgrade.git",
+  "author": "majmunbog <ivan@centarro.io>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/ibuisic/belgrade/issues"
+  },
+  "homepage": "https://github.com/ibuisic/source#readme",
+  "devDependencies": {
+    "@popperjs/core": "^2.11.8",
+    "autoprefixer": "^10.4.17",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^11.0.0",
+    "postcss-inline-svg": "^6.0.0",
+    "prettier": "^3.2.5",
+    "sass": "1.32.13",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "svg-sprite": "^2.0.2"
+  },
+  "browserslist": [
+    ">= 0.5%",
+    "last 2 major versions",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Firefox ESR",
+    "iOS >= 12",
+    "Safari >= 12",
+    "not Explorer <= 11"
+  ]
+}

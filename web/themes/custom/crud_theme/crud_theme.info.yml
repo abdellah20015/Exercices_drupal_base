@@ -1,0 +1,9 @@
+name: 'CRUD Thème'
+type: theme
+base theme: false
+core_version_requirement: ^10
+description: 'Thème stylisé avec HTML, Sass et JS pour gérer CRUD'
+regions:
+  content: 'Contenu principal'
+libraries:
+  - crud_theme/global

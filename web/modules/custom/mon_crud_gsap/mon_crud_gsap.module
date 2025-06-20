@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function mon_crud_gsap_theme($existing, $type, $theme, $path) {
+  return [
+    'crud_gsap' => [
+      'variables' => [],
+      'template' => 'crud-gsap',
+      'path' => \Drupal::service('extension.list.module')->getPath('mon_crud_gsap') . '/templates',
+    ],
+  ];
+}

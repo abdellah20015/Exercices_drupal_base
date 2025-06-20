@@ -1,0 +1,27 @@
+uuid: 3f836f94-253e-4ed8-8897-a8f10aaf2d0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - todo_theme
+_core:
+  default_config_hash: W1mUb_Fv5zaCLkG8UWNiJ76yfWgtvNV8gX5jk8SSnEE
+id: todo_theme_account_menu
+theme: todo_theme
+region: content
+weight: -6
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

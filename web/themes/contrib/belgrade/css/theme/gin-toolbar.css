@@ -1,0 +1,7 @@
+.gin--navigation .region-navigation.offcanvas-start {
+  left: var(--gin-toolbar-x-offset);
+}
+.gin--navigation .admin-toolbar,
+.gin--navigation .gin-secondary-toolbar.gin-secondary-toolbar--frontend {
+  z-index: 1047;
+}

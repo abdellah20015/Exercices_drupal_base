@@ -1,0 +1,23 @@
+uuid: c314d0da-8c08-49fe-a0ed-e2c628069ee2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - crud_theme
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: crud_theme_syndicate
+theme: crud_theme
+region: content
+weight: 0
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

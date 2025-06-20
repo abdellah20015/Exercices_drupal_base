@@ -1,0 +1,8 @@
+global:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/crud.js: {}
+  dependencies:
+    - core/jquery

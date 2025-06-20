@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gestion des Articles</h1>
+      {{ page.content }}
+      <div class="footer">
+        <p>&copy; {{ "now"|date("Y") }} Mon Site Web</p>
+        <p><a href="{{ path('node.add', {'node_type': 'article'}) }}">Ajouter un article</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'page'}) }}">Ajouter une page</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'blog'}) }}">Ajouter un blog</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'news'}) }}">Ajouter une news</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'event'}) }}">Ajouter un événement</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'product'}) }}">Ajouter un produit</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'service'}) }}">Ajouter un service</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'portfolio'}) }}">Ajouter un portfolio</a></p>
+        <p><a href="{{ path('node.add', {'node_type': 'testimonial'}) }}">Ajouter un témoignage</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+name: 'CRUD GSAP'
+type: module
+description: 'Un module CRUD avec HTML, Sass, JS et GSAP'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:twig_tweak
