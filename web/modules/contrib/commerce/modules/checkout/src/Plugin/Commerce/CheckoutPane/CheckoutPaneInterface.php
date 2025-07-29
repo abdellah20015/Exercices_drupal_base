@@ -59,6 +59,17 @@ interface CheckoutPaneInterface extends ConfigurableInterface, DependentPluginIn
   public function getDisplayLabel();
 
   /**
+   * Gets the pane admin description.
+   *
+   * This description is admin-facing and optional to provide details
+   * about the pane.
+   *
+   * @return string
+   *   The pane admin description.
+   */
+  public function getAdminDescription();
+
+  /**
    * Gets the pane wrapper element.
    *
    * Used when rendering the pane's form.

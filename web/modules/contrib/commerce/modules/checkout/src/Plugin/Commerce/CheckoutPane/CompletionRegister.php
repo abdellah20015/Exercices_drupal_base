@@ -19,6 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 #[CommerceCheckoutPane(
   id: "completion_register",
   label: new TranslatableMarkup("Guest registration after checkout"),
+  admin_description: new TranslatableMarkup("Allows guests to register after checkout completion."),
   display_label: new TranslatableMarkup("Account information"),
   default_step: "complete",
 )]

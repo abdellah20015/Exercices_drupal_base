@@ -52,7 +52,7 @@ class PromotionCompatibilityTest extends OrderKernelTestBase {
     ]);
     $order_item->save();
 
-    $this->order = Order::create([
+    $order = Order::create([
       'type' => 'default',
       'state' => 'completed',
       'mail' => 'test@example.com',
@@ -63,6 +63,8 @@ class PromotionCompatibilityTest extends OrderKernelTestBase {
       'total_price' => new Price('100.00', 'USD'),
       'uid' => $this->createUser()->id(),
     ]);
+    $order->save();
+    $this->order = $this->reloadEntity($order);
   }
 
   /**

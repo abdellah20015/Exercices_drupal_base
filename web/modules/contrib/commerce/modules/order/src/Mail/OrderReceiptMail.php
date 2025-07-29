@@ -60,6 +60,9 @@ class OrderReceiptMail implements OrderReceiptMailInterface {
       $profile_view_builder = $this->entityTypeManager->getViewBuilder('profile');
       $body['#billing_information'] = $profile_view_builder->view($billing_profile);
     }
+    if (!empty($bcc)) {
+      $bcc = $this->token->replace($bcc, ['commerce_order' => $order]);
+    }
 
     $params = [
       'id' => 'order_receipt',

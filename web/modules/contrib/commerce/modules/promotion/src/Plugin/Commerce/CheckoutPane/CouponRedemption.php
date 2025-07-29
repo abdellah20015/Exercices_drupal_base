@@ -15,6 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 #[CommerceCheckoutPane(
   id: "coupon_redemption",
   label: new TranslatableMarkup("Coupon redemption"),
+  admin_description: new TranslatableMarkup("Provides the coupon redemption form."),
   default_step: "_sidebar",
   wrapper_element: "container",
 )]
@@ -34,6 +35,13 @@ class CouponRedemption extends CheckoutPaneBase {
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition, $checkout_flow);
     $instance->inlineFormManager = $container->get('plugin.manager.commerce_inline_form');
     return $instance;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function isVisible() {
+    return $this->order->getState()->getId() === 'draft';
   }
 
   /**

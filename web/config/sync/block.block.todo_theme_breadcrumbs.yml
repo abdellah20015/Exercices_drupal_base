@@ -1,0 +1,26 @@
+uuid: 2b2cda6c-0eb0-4fc6-bb67-9b3c44327afe
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - todo_theme
+_core:
+  default_config_hash: o9654zFbOpjd88E5j5l4Cby3t-WwUuTfQ6xcKSLsodg
+id: todo_theme_breadcrumbs
+theme: todo_theme
+region: content
+weight: -7
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/cart*\r\n/checkout*\r\n<front>"

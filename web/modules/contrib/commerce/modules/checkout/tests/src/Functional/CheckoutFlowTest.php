@@ -122,6 +122,20 @@ class CheckoutFlowTest extends CommerceBrowserTestBase {
   }
 
   /**
+   * Tests admin description of a pane.
+   */
+  public function testPaneAdminDescription() {
+    $this->drupalGet('admin/commerce/config/checkout-flows/manage/default');
+    // Make sure that the default admin description of the login pane is present.
+    $this->assertSession()->elementExists('css', 'div .checkout-pane-overview .pane-configuration-admin-description');
+    $this->assertSession()->elementContains('css', 'div .checkout-pane-overview .pane-configuration-admin-description', 'Presents customers with the choice to log in or proceed as a guest during checkout.');
+    // Make sure that the default step description of the login pane is present.
+    $this->assertSession()->elementExists('css', 'div .checkout-pane-overview .pane-configuration-default-step');
+    $this->assertSession()->elementContains('css', 'div .checkout-pane-overview .pane-configuration-default-step__label', 'Default Step:');
+    $this->assertSession()->elementContains('css', 'div .checkout-pane-overview .pane-configuration-default-step__title', 'Log in');
+  }
+
+  /**
    * Tests that removing a dependency doesn't remove the checkout flow.
    */
   public function testCheckoutFlowDependencies() {

@@ -20,7 +20,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 #[CommerceCheckoutPane(
   id: "login",
   label: new TranslatableMarkup('Log in or continue as guest'),
+  admin_description: new TranslatableMarkup("Presents customers with the choice to log in or proceed as a guest during checkout."),
   default_step: "login",
+  wrapper_element: "container",
 )]
 class Login extends CheckoutPaneBase implements CheckoutPaneInterface, ContainerFactoryPluginInterface {
 

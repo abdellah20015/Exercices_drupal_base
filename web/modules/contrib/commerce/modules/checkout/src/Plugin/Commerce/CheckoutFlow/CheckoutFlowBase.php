@@ -260,7 +260,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       'complete' => [
         'label' => $this->t('Complete'),
         'next_label' => $this->t('Complete checkout'),
-        'has_sidebar' => FALSE,
+        'has_sidebar' => !empty($this->configuration['display_sidebar_checkout_complete']),
       ],
     ];
   }
@@ -325,6 +325,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
     return [
       'display_checkout_progress' => TRUE,
       'display_checkout_progress_breadcrumb_links' => FALSE,
+      'display_sidebar_checkout_complete' => FALSE,
       'guest_order_assign' => FALSE,
       'guest_new_account' => FALSE,
       'guest_new_account_notify' => FALSE,
@@ -346,6 +347,12 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       '#title' => $this->t('Display checkout progress breadcrumb as links'),
       '#description' => $this->t('Let the checkout progress block render the breadcrumb as links.'),
       '#default_value' => $this->configuration['display_checkout_progress_breadcrumb_links'],
+    ];
+    $form['display_sidebar_checkout_complete'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Display sidebar on checkout completion'),
+      '#description' => $this->t('Whether the sidebar should be shown on the checkout completion page.'),
+      '#default_value' => $this->configuration['display_sidebar_checkout_complete'],
     ];
     $form['guest_order_assign'] = [
       '#type' => 'checkbox',
@@ -388,6 +395,7 @@ abstract class CheckoutFlowBase extends PluginBase implements CheckoutFlowInterf
       $this->configuration = [];
       $this->configuration['display_checkout_progress'] = $values['display_checkout_progress'];
       $this->configuration['display_checkout_progress_breadcrumb_links'] = $values['display_checkout_progress_breadcrumb_links'];
+      $this->configuration['display_sidebar_checkout_complete'] = !empty($values['display_sidebar_checkout_complete']);
       $this->configuration['guest_order_assign'] = $values['guest_order_assign'];
       $this->configuration['guest_new_account'] = $values['guest_new_account'];
       $this->configuration['guest_new_account_notify'] = $values['guest_new_account_notify'];

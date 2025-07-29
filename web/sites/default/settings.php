@@ -893,10 +893,10 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'mysite_db',
+  'database' => 'exercises',
   'username' => 'root',
   'password' => '',
-  'prefix' => '',
+  'prefix' => 'test_',
   'host' => '127.0.0.1',
   'port' => '',
   'isolation_level' => 'READ COMMITTED',
@@ -904,9 +904,11 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'autoload' => 'core/modules/mysql\\src\\Driver\\Database\\mysql\\',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_Ev1SmA7HSgs4shemw-LkFtbdbiyK1HR2Xg30NIzwyoYzALjYWzg9DUcMrXMJndFO1TArra-p-w/sync';
+
+$settings['config_sync_directory'] = '../../../web/config/sync';
 
 $settings['trusted_host_patterns'] = [
   '^localhost$',
-  '^127\.0\.0\.1$'
+  '^127\.0\.0\.1$',
+  '^exercices\.test$'
 ];

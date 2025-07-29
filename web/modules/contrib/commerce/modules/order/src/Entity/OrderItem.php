@@ -201,8 +201,11 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    */
   public function addAdjustment(Adjustment $adjustment) {
     $this->get('adjustments')->appendItem($adjustment);
-    if ($this->getOrder()) {
-      $this->getOrder()->recalculateTotalPrice();
+    $order = $this->getOrder();
+    // Skip the order total recalculation when adding an included adjustment
+    // since the order total isn't affected by included adjustments.
+    if (!$adjustment->isIncluded() && $order) {
+      $order->recalculateTotalPrice();
     }
     return $this;
   }
@@ -212,8 +215,11 @@ class OrderItem extends CommerceContentEntityBase implements OrderItemInterface 
    */
   public function removeAdjustment(Adjustment $adjustment) {
     $this->get('adjustments')->removeAdjustment($adjustment);
-    if ($this->getOrder()) {
-      $this->getOrder()->recalculateTotalPrice();
+    $order = $this->getOrder();
+    // Skip the order total recalculation when removing an included adjustment
+    // since the order total isn't affected by included adjustments.
+    if (!$adjustment->isIncluded() && $order) {
+      $order->recalculateTotalPrice();
     }
     return $this;
   }

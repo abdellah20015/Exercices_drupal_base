@@ -13,6 +13,7 @@ use Drupal\commerce_checkout\Attribute\CommerceCheckoutPane;
 #[CommerceCheckoutPane(
   id: "customer_comments",
   label: new TranslatableMarkup("Comments"),
+  admin_description: new TranslatableMarkup("Allows customers to enter a comment for the order."),
   default_step: "_disabled",
   wrapper_element: "fieldset",
 )]

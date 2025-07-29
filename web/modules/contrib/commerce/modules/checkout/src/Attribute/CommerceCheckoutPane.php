@@ -25,6 +25,8 @@ class CommerceCheckoutPane extends Plugin {
    *   The checkout pane label.
    * @param \Drupal\Core\StringTranslation\TranslatableMarkup|null $display_label
    *   (optional) The checkout pane display label, defaults to the label.
+   * @param \Drupal\Core\StringTranslation\TranslatableMarkup|null $admin_description
+   *   The optional admin description for this pane.
    * @param string|null $default_step
    *   The ID of the default step for this pane.
    *   (optional) If missing, the pane will be disabled by default.
@@ -36,6 +38,7 @@ class CommerceCheckoutPane extends Plugin {
     public readonly string $id,
     public readonly TranslatableMarkup $label,
     public ?TranslatableMarkup $display_label = NULL,
+    public ?TranslatableMarkup $admin_description = NULL,
     public readonly ?string $default_step = NULL,
     public readonly ?string $wrapper_element = NULL,
   ) {

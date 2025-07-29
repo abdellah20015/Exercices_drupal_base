@@ -29,9 +29,37 @@ class AdjustmentItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties['value'] = DataDefinition::create('any')
+    $properties['value'] = DataDefinition::create('adjustment_item')
       ->setLabel(t('Value'))
       ->setRequired(TRUE);
+
+    $properties['type'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Type'))
+      ->setComputed(TRUE);
+
+    $properties['label'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Label'))
+      ->setComputed(TRUE);
+
+    $properties['amount'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Amount'))
+      ->setComputed(TRUE);
+
+    $properties['source_id'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Source ID'))
+      ->setComputed(TRUE);
+
+    $properties['percentage'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Amount'))
+      ->setComputed(TRUE);
+
+    $properties['included'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Included'))
+      ->setComputed(TRUE);
+
+    $properties['locked'] = DataDefinition::create('adjustment_property')
+      ->setLabel(t('Locked'))
+      ->setComputed(TRUE);
 
     return $properties;
   }

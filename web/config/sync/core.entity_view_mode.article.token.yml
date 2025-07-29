@@ -1,0 +1,11 @@
+uuid: 16af3db6-04eb-4a06-b403-fbccec594c4b
+langcode: en
+status: true
+dependencies:
+  module:
+    - gestion_articles
+id: article.token
+label: Token
+description: ''
+targetEntityType: article
+cache: true

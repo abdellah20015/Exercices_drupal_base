@@ -1,0 +1,25 @@
+uuid: f7de6b84-cf2a-41c7-90a3-245a18ac4a0f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3e2e0690-ff7d-447a-b814-d4f1c2aa1656'
+  module:
+    - block_content
+  theme:
+    - belgrade
+id: belgrade_icons
+theme: belgrade
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:3e2e0690-ff7d-447a-b814-d4f1c2aa1656'
+settings:
+  id: 'block_content:3e2e0690-ff7d-447a-b814-d4f1c2aa1656'
+  label: icons
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

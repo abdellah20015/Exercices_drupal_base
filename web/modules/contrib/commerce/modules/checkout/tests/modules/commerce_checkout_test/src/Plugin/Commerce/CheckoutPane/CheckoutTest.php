@@ -13,6 +13,7 @@ use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;
 #[CommerceCheckoutPane(
   id: "checkout_test",
   label: new TranslatableMarkup("Checkout test"),
+  admin_description: new TranslatableMarkup("This is just for testing."),
   default_step: "review",
 )]
 class CheckoutTest extends CheckoutPaneBase {

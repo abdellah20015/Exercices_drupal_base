@@ -379,7 +379,11 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
    */
   public function addAdjustment(Adjustment $adjustment) {
     $this->get('adjustments')->appendItem($adjustment);
-    $this->recalculateTotalPrice();
+    // No point in recalculating the order total when the adjustment being added
+    // is already included since it doesn't affect the order total.
+    if (!$adjustment->isIncluded()) {
+      $this->recalculateTotalPrice();
+    }
     return $this;
   }
 
@@ -388,7 +392,11 @@ class Order extends CommerceContentEntityBase implements OrderInterface {
    */
   public function removeAdjustment(Adjustment $adjustment) {
     $this->get('adjustments')->removeAdjustment($adjustment);
-    $this->recalculateTotalPrice();
+    // No point in recalculating the order total when the adjustment being
+    // removed is already included since it doesn't affect the order total.
+    if (!$adjustment->isIncluded()) {
+      $this->recalculateTotalPrice();
+    }
     return $this;
   }
 

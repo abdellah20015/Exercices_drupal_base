@@ -94,7 +94,7 @@ class OrderItemMatcher implements OrderItemMatcherInterface {
     $field_names = [];
     $storage = $this->entityTypeManager->getStorage('entity_form_display');
     /** @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display */
-    $form_display = $storage->load('commerce_order_item.' . $order_item->bundle() . '.' . 'add_to_cart');
+    $form_display = $storage->load("commerce_order_item.{$order_item->bundle()}.add_to_cart");
     if ($form_display) {
       $field_names = array_keys($form_display->getComponents());
       // Remove base fields.

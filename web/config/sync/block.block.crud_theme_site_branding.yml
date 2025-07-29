@@ -1,0 +1,25 @@
+uuid: 510f16c9-272b-49fc-b99d-5011079f7f81
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - crud_theme
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: crud_theme_site_branding
+theme: crud_theme
+region: content
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

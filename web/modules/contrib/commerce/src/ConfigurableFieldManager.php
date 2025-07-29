@@ -54,6 +54,7 @@ class ConfigurableFieldManager implements ConfigurableFieldManagerInterface {
       'field_storage' => $field_storage,
       'bundle' => $bundle,
       'label' => $field_definition->getLabel(),
+      'description' => $field_definition->getDescription() ?? '',
       'required' => $field_definition->isRequired(),
       'settings' => $field_definition->getSettings(),
       'translatable' => $field_definition->isTranslatable(),

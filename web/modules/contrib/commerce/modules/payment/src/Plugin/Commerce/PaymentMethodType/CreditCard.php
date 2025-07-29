@@ -29,7 +29,7 @@ class CreditCard extends PaymentMethodTypeBase implements FailedPaymentDetailsIn
     else {
       $card_type = $this->t('Credit card');
     }
-    $card_number = $payment_method->card_number->value;
+    $card_number = $payment_method->card_number->value ?? '';
     $args = [
       '@card_type' => $card_type,
       '@card_number' => $card_number,

@@ -84,7 +84,7 @@ class OrderAdminTest extends OrderWebDriverTestBase {
     // Create an order through the add form.
     $this->drupalGet('/admin/commerce/orders');
     $this->getSession()->getPage()->clickLink('Create a new order');
-    $user = $this->loggedInUser->getAccountName() . ' <' . $this->loggedInUser->getEmail() . '>' . ' (' . $this->loggedInUser->id() . ')';
+    $user = "{$this->loggedInUser->getAccountName()} <{$this->loggedInUser->getEmail()}> ({$this->loggedInUser->id()})";
     $this->getSession()->getPage()->fillField('uid', $user);
     $this->assertSession()->assertWaitOnAjaxRequest();
     $edit = [

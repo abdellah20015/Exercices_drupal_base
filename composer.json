@@ -17,7 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/address": "^2.0",
-        "drupal/admin_toolbar": "^3.5",
+        "drupal/admin_toolbar": "^3.6",
         "drupal/belgrade": "^2.1",
         "drupal/block_class": "3.0",
         "drupal/classy": "^2.0",
@@ -28,7 +28,11 @@
         "drupal/core-recommended": "^10.0",
         "drupal/devel": "^5.2",
         "drupal/inline_entity_form": "^3.0@rc",
+        "drupal/jsonapi_extras": "^3.26",
+        "drupal/jsonrpc": "^2.1",
         "drupal/pathauto": "1.13",
+        "drupal/restui": "^1.22",
+        "drupal/simple_oauth": "^6.0",
         "drupal/twig_tweak": "^3.4",
         "drupal/views_slideshow": "^5.0",
         "drush/drush": "^13.6"

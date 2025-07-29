@@ -34,7 +34,6 @@ class OffsiteOrderDataTest extends CommerceWebDriverTestBase {
     'commerce_payment',
     'commerce_payment_example',
     'commerce_payment_test',
-    'commerce_product',
   ];
 
   /**

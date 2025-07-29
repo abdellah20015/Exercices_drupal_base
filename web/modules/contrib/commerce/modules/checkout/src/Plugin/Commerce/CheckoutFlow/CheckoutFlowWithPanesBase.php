@@ -306,9 +306,19 @@ abstract class CheckoutFlowWithPanesBase extends CheckoutFlowBase implements Che
   protected function buildPaneRow(CheckoutPaneInterface $pane, array &$form, FormStateInterface $form_state) {
     $pane_id = $pane->getPluginId();
     $label = $pane->getLabel();
+    $default_step = $pane->defaultConfiguration()['step'];
+    $default_step_title = $this->getTableRegions()[$default_step]['title'] ?? $default_step;
     $region_titles = array_map(function ($region) {
       return $region['title'];
     }, $this->getTableRegions());
+    $suffix = '';
+    $admin_description = $pane->getAdminDescription();
+    if (!empty($admin_description)) {
+      $suffix = '<div class="pane-configuration-admin-description">' . $admin_description . '</div>';
+    }
+    $suffix .= $this->t('<div class="pane-configuration-default-step"><span class="pane-configuration-default-step__label">Default step:</span> <span class="pane-configuration-default-step__title">@default_step_title</span></div>', [
+      '@default_step_title' => $default_step_title,
+    ]);
 
     $pane_row = [
       '#attributes' => [
@@ -316,6 +326,7 @@ abstract class CheckoutFlowWithPanesBase extends CheckoutFlowBase implements Che
       ],
       'human_name' => [
         '#plain_text' => $label,
+        '#suffix' => $suffix,
       ],
       'weight' => [
         '#type' => 'textfield',
@@ -360,7 +371,11 @@ abstract class CheckoutFlowWithPanesBase extends CheckoutFlowBase implements Che
       $pane_row['#attributes']['class'][] = 'pane-configuration-editing';
 
       $pane_row['configuration'] = [
-        '#parents' => array_merge($form['#parents'], ['panes', $pane_id, 'configuration']),
+        '#parents' => array_merge($form['#parents'], [
+          'panes',
+          $pane_id,
+          'configuration',
+        ]),
         '#type' => 'container',
         '#wrapper_attributes' => ['colspan' => 2],
         '#attributes' => [
@@ -412,7 +427,10 @@ abstract class CheckoutFlowWithPanesBase extends CheckoutFlowBase implements Che
           '#type' => 'image_button',
           '#name' => $pane_id . '_configuration_edit',
           '#src' => 'core/misc/icons/787878/cog.svg',
-          '#attributes' => ['class' => ['pane-configuration-edit'], 'alt' => $this->t('Edit')],
+          '#attributes' => [
+            'class' => ['pane-configuration-edit'],
+            'alt' => $this->t('Edit'),
+          ],
           '#op' => 'edit',
           '#limit_validation_errors' => [],
           '#prefix' => '<div class="pane-configuration-edit-wrapper">',
@@ -539,7 +557,10 @@ abstract class CheckoutFlowWithPanesBase extends CheckoutFlowBase implements Che
         '#type' => $pane->getWrapperElement(),
         '#title' => $pane->getDisplayLabel(),
         '#attributes' => [
-          'class' => ['checkout-pane', 'checkout-pane-' . str_replace('_', '-', $pane_id)],
+          'class' => [
+            'checkout-pane',
+            'checkout-pane-' . str_replace('_', '-', $pane_id),
+          ],
         ],
         '#pane_id' => $pane_id,
       ];
@@ -560,7 +581,10 @@ abstract class CheckoutFlowWithPanesBase extends CheckoutFlowBase implements Che
           '#type' => $pane->getWrapperElement(),
           '#title' => $pane->getDisplayLabel(),
           '#attributes' => [
-            'class' => ['checkout-pane', 'checkout-pane-' . str_replace('_', '-', $pane_id)],
+            'class' => [
+              'checkout-pane',
+              'checkout-pane-' . str_replace('_', '-', $pane_id),
+            ],
           ],
         ];
         $form['sidebar'][$pane_id] = $pane->buildPaneForm($form['sidebar'][$pane_id], $form_state, $form);

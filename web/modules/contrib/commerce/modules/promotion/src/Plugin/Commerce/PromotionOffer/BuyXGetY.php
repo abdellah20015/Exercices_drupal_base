@@ -6,6 +6,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\commerce\ConditionGroup;
 use Drupal\commerce\Context;
@@ -60,6 +61,13 @@ class BuyXGetY extends OrderPromotionOfferBase {
   protected $entityTypeManager;
 
   /**
+   * The language manager.
+   *
+   * @var \Drupal\Core\Language\LanguageManagerInterface
+   */
+  protected $languageManager;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -67,6 +75,7 @@ class BuyXGetY extends OrderPromotionOfferBase {
     $instance->conditionManager = $container->get('plugin.manager.commerce_condition');
     $instance->chainPriceResolver = $container->get('commerce_price.chain_price_resolver');
     $instance->entityTypeManager = $container->get('entity_type.manager');
+    $instance->languageManager = $container->get('language_manager');
 
     return $instance;
   }
@@ -549,13 +558,20 @@ class BuyXGetY extends OrderPromotionOfferBase {
    */
   protected function findSinglePurchasableEntity(ConditionGroup $conditions) {
     foreach ($conditions->getConditions() as $condition) {
-      if ($condition instanceof PurchasableEntityConditionInterface) {
-        $purchasable_entity_ids = $condition->getPurchasableEntityIds();
-        if (count($purchasable_entity_ids) === 1) {
-          $purchasable_entities = $condition->getPurchasableEntities();
-          return reset($purchasable_entities);
-        }
+      if (!$condition instanceof PurchasableEntityConditionInterface) {
+        continue;
       }
+      if (count($condition->getPurchasableEntityIds()) !== 1) {
+        continue;
+      }
+      $purchasable_entities = $condition->getPurchasableEntities();
+      if (!$purchasable_entities) {
+        continue;
+      }
+      $purchasable_entity = reset($purchasable_entities);
+      $langcode = $this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+
+      return $purchasable_entity->hasTranslation($langcode) ? $purchasable_entity->getTranslation($langcode) : $purchasable_entity;
     }
 
     return NULL;
