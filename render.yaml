@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: drupal-app
+    name: exercice
     env: php
     buildCommand: "composer install"
     startCommand: "php -S 0.0.0.0:10000 -t web"
