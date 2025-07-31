@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: exercice
-    env: php
-    buildCommand: "composer install"
-    startCommand: "php -S 0.0.0.0:10000 -t web"
-    envVars:
-      - key: DRUPAL_TRUSTED_HOSTS
-        value: .+
